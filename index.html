@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/libs.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<svg style="display: none">
+    <symbol id="search" viewBox="0 0 16 16">
+        <path d="M15.7812 13.8344L12.6656 10.7188C12.525 10.5781 12.3344 10.5 12.1344 10.5H11.625C12.4875 9.39688 13 8.00937 13 6.5C13 2.90937 10.0906 0 6.5 0C2.90937 0 0 2.90937 0 6.5C0 10.0906 2.90937 13 6.5 13C8.00937 13 9.39688 12.4875 10.5 11.625V12.1344C10.5 12.3344 10.5781 12.525 10.7188 12.6656L13.8344 15.7812C14.1281 16.075 14.6031 16.075 14.8938 15.7812L15.7781 14.8969C16.0719 14.6031 16.0719 14.1281 15.7812 13.8344ZM6.5 10.5C4.29063 10.5 2.5 8.7125 2.5 6.5C2.5 4.29063 4.2875 2.5 6.5 2.5C8.70938 2.5 10.5 4.2875 10.5 6.5C10.5 8.70938 8.7125 10.5 6.5 10.5Z"/>
+    </symbol>
+    <symbol id="close" viewBox="0 0 16 16">
+        <path d="M9.76221 7.99997L15.7444 2.01753C15.9089 1.85285 15.9997 1.63314 16 1.39886C16 1.16446 15.9092 0.944488 15.7444 0.780065L15.2202 0.255968C15.0553 0.0908948 14.8356 0.000488281 14.6011 0.000488281C14.367 0.000488281 14.1473 0.0908948 13.9824 0.255968L8.00026 6.23802L2.01782 0.255968C1.85327 0.0908948 1.63343 0.000488281 1.39902 0.000488281C1.16488 0.000488281 0.945041 0.0908948 0.780488 0.255968L0.256 0.780065C-0.0853333 1.1214 -0.0853333 1.67659 0.256 2.01753L6.23831 7.99997L0.256 13.9821C0.0913171 14.1471 0.000650406 14.3668 0.000650406 14.6011C0.000650406 14.8354 0.0913171 15.0551 0.256 15.2199L0.780358 15.744C0.944911 15.9089 1.16488 15.9994 1.39889 15.9994C1.6333 15.9994 1.85314 15.9089 2.01769 15.744L8.00013 9.76179L13.9823 15.744C14.1471 15.9089 14.3668 15.9994 14.601 15.9994H14.6012C14.8355 15.9994 15.0552 15.9089 15.22 15.744L15.7443 15.2199C15.9088 15.0552 15.9996 14.8354 15.9996 14.6011C15.9996 14.3668 15.9088 14.1471 15.7443 13.9823L9.76221 7.99997Z"/>
+    </symbol>
+    <symbol id="swiper-arrow" viewBox="0 0 52 52">
+        <path d="M38.5445 13.1363C38.3276 13.2263 38.1306 13.3582 37.9648 13.5245C37.7985 13.6903 37.6666 13.8874 37.5766 14.1043C37.4866 14.3212 37.4402 14.5537 37.4402 14.7885C37.4402 15.0233 37.4866 15.2559 37.5766 15.4728C37.6666 15.6897 37.7985 15.8867 37.9648 16.0525L45.6302 23.7151H1.78533C1.31183 23.7151 0.857724 23.9032 0.52291 24.238C0.188097 24.5728 0 25.0269 0 25.5004C0 25.9739 0.188097 26.4281 0.52291 26.7629C0.857724 27.0977 1.31183 27.2858 1.78533 27.2858H45.6303L37.9648 34.9484C37.6295 35.2836 37.4412 35.7383 37.4412 36.2124C37.4412 36.6865 37.6295 37.1412 37.9648 37.4764C38.3 37.8117 38.7547 38 39.2288 38C39.7029 38 40.1575 37.8117 40.4928 37.4764L51.2047 26.7645C51.371 26.5986 51.5029 26.4016 51.5929 26.1847C51.6829 25.9678 51.7292 25.7353 51.7292 25.5005C51.7292 25.2656 51.6829 25.0331 51.5929 24.8162C51.5029 24.5993 51.371 24.4023 51.2047 24.2365L40.4928 13.5245C40.3269 13.3582 40.1299 13.2263 39.913 13.1363C39.6961 13.0463 39.4636 13 39.2288 13C38.9939 13 38.7614 13.0463 38.5445 13.1363Z"/>
+    </symbol>
+    <symbol id="twitter" viewBox="0 0 25 25">
+        <path d="M24.6183 5.37575C23.713 5.76628 22.7278 6.04735 21.713 6.15682C22.7666 5.53089 23.5556 4.54202 23.9319 3.37575C22.9433 3.96388 21.8602 4.37629 20.7308 4.59469C20.2587 4.09003 19.6878 3.688 19.0535 3.41364C18.4193 3.13929 17.7354 2.99849 17.0444 3.00001C14.2485 3.00001 12 5.26628 12 8.04735C12 8.43788 12.0473 8.82841 12.1243 9.20415C7.93786 8.98522 4.20414 6.98522 1.72189 3.92309C1.2696 4.69562 1.03258 5.57524 1.0355 6.47042C1.0355 8.2219 1.92603 9.76628 3.28402 10.6746C2.48374 10.643 1.7022 10.4231 1.00296 10.0326V10.0947C1.00296 12.5473 2.73668 14.5799 5.04733 15.0473C4.61348 15.16 4.16718 15.2177 3.71893 15.2189C3.39053 15.2189 3.07988 15.1864 2.76627 15.142C3.40532 17.142 5.26627 18.5947 7.48224 18.642C5.74852 20 3.57692 20.7988 1.21893 20.7988C0.795858 20.7988 0.405325 20.784 0 20.7367C2.23668 22.1716 4.89053 23 7.74852 23C17.0266 23 22.1035 15.3136 22.1035 8.64202C22.1035 8.42309 22.1035 8.20415 22.0887 7.98522C23.071 7.26628 23.9319 6.37575 24.6183 5.37575Z"/>
+    </symbol>
+    <symbol id="facebook" viewBox="0 0 25 25">
+        <path d="M12.999 3C7.477 3 3 7.477 3 12.999C3 17.989 6.656 22.125 11.437 22.878V15.89H8.897V12.999H11.437V10.796C11.437 8.288 12.93 6.905 15.213 6.905C16.307 6.905 17.453 7.1 17.453 7.1V9.559H16.189C14.949 9.559 14.561 10.331 14.561 11.122V12.997H17.332L16.889 15.888H14.561V22.876C19.342 22.127 22.998 17.99 22.998 12.999C22.998 7.477 18.521 3 12.999 3V3Z"/>
+    </symbol>
+    <symbol id="wifi" viewBox="0 0 25 25">
+        <path d="M5.02304 3C14.9749 3 23.0743 11.0758 23.1165 21.0176V21.0182H23.118V22.0701H23.1062C23.0798 22.3033 22.9755 22.5209 22.81 22.6874C22.6445 22.8539 22.4277 22.9596 22.1946 22.9875V22.9999H20.3243V22.9978C20.0713 22.9925 19.8288 22.8955 19.642 22.7247C19.4552 22.554 19.3368 22.3213 19.3088 22.0698H19.297V21.0179H19.3076C19.2654 13.1756 12.8747 6.80861 5.02273 6.80861C5.01528 6.80861 5.00783 6.80807 5.00037 6.80752C4.99416 6.80707 4.98795 6.80662 4.98174 6.80648V6.82106H3.92983V6.80922C3.69654 6.78293 3.47898 6.67858 3.31246 6.5131C3.14593 6.34762 3.04021 6.13072 3.01245 5.8976H3V4.02731H3.00213C3.00742 3.77431 3.10445 3.53185 3.27516 3.34505C3.44587 3.15825 3.67864 3.03984 3.93014 3.01184V3H4.98204V3.00213C4.98822 3.00199 4.99434 3.00154 5.00048 3.00109C5.00792 3.00055 5.01539 3 5.02304 3ZM5.02304 10.2062C5.01539 10.2062 5.00792 10.2067 5.00048 10.2073L5.00047 10.2073C4.99433 10.2077 4.98822 10.2082 4.98204 10.2083V10.2062H3.93014V10.218C3.67864 10.246 3.44587 10.3644 3.27516 10.5512C3.10445 10.738 3.00742 10.9805 3.00213 11.2335H3V13.1038H3.01245C3.04026 13.3369 3.146 13.5538 3.31252 13.7192C3.47903 13.8847 3.69656 13.9891 3.92983 14.0154V14.0273H4.98174V14.0127C4.98795 14.0128 4.99416 14.0133 5.00037 14.0137C5.00782 14.0143 5.01528 14.0148 5.02273 14.0148C8.90119 14.0148 12.0596 17.149 12.1015 21.0177H12.0915V22.0696H12.1034C12.1314 22.3211 12.2498 22.5539 12.4366 22.7246C12.6234 22.8953 12.8658 22.9923 13.1188 22.9976V22.9997H14.9888V22.9873C15.2219 22.9595 15.4388 22.8537 15.6043 22.6872C15.7697 22.5207 15.8741 22.3032 15.9004 22.0699H15.9123V21.018H15.9105C15.8689 15.0488 11.0014 10.2062 5.02304 10.2062ZM5.84948 17.5393C5.49924 17.5393 5.15244 17.6083 4.82888 17.7424C4.50532 17.8764 4.21135 18.0729 3.96375 18.3207C3.71616 18.5684 3.51979 18.8624 3.38587 19.186C3.25195 19.5097 3.18311 19.8565 3.18327 20.2067C3.18327 20.5569 3.25225 20.9037 3.38627 21.2273C3.52029 21.5508 3.71672 21.8448 3.96436 22.0925C4.212 22.3401 4.50599 22.5365 4.82954 22.6705C5.15309 22.8046 5.49987 22.8735 5.85008 22.8735C6.2003 22.8735 6.54708 22.8046 6.87063 22.6705C7.19418 22.5365 7.48817 22.3401 7.73581 22.0925C7.98344 21.8448 8.17988 21.5508 8.3139 21.2273C8.44792 20.9037 8.5169 20.5569 8.5169 20.2067C8.51706 19.8564 8.44817 19.5095 8.31418 19.1858C8.18018 18.8621 7.98371 18.5679 7.73599 18.3202C7.48826 18.0725 7.19414 17.876 6.87044 17.742C6.54675 17.608 6.19981 17.5391 5.84948 17.5393Z"/>
+    </symbol>
+    <symbol id="instagram" viewBox="0 0 25 25">
+        <path d="M12.9975 9.66525C11.1613 9.66525 9.66275 11.1638 9.66275 13C9.66275 14.8362 11.1613 16.3348 12.9975 16.3348C14.8337 16.3348 16.3323 14.8362 16.3323 13C16.3323 11.1638 14.8337 9.66525 12.9975 9.66525ZM22.9993 13C22.9993 11.6191 23.0118 10.2506 22.9342 8.87221C22.8567 7.27113 22.4914 5.85017 21.3206 4.67938C20.1473 3.50609 18.7289 3.14334 17.1278 3.06579C15.7469 2.98824 14.3784 3.00074 13 3.00074C11.6191 3.00074 10.2506 2.98824 8.87221 3.06579C7.27113 3.14334 5.85017 3.50859 4.67938 4.67938C3.50609 5.85267 3.14334 7.27113 3.06579 8.87221C2.98824 10.2531 3.00074 11.6216 3.00074 13C3.00074 14.3784 2.98824 15.7494 3.06579 17.1278C3.14334 18.7289 3.50859 20.1498 4.67938 21.3206C5.85267 22.4939 7.27113 22.8567 8.87221 22.9342C10.2531 23.0118 11.6216 22.9993 13 22.9993C14.3809 22.9993 15.7494 23.0118 17.1278 22.9342C18.7289 22.8567 20.1498 22.4914 21.3206 21.3206C22.4939 20.1473 22.8567 18.7289 22.9342 17.1278C23.0143 15.7494 22.9993 14.3809 22.9993 13V13ZM12.9975 18.131C10.1581 18.131 7.86653 15.8394 7.86653 13C7.86653 10.1606 10.1581 7.86903 12.9975 7.86903C15.8369 7.86903 18.1285 10.1606 18.1285 13C18.1285 15.8394 15.8369 18.131 12.9975 18.131ZM18.3386 8.8572C17.6757 8.8572 17.1403 8.32184 17.1403 7.65889C17.1403 6.99594 17.6757 6.46058 18.3386 6.46058C19.0016 6.46058 19.5369 6.99594 19.5369 7.65889C19.5371 7.81631 19.5063 7.97222 19.4461 8.1177C19.386 8.26317 19.2977 8.39535 19.1864 8.50666C19.0751 8.61798 18.9429 8.70624 18.7974 8.76639C18.6519 8.82654 18.496 8.8574 18.3386 8.8572V8.8572Z"/>
+    </symbol>
+    <symbol id="log-in" viewBox="0 0 22 22">
+        <path d="M20.0035 0.01375C19.9806 0.0119167 19.9613 0 19.9375 0H10.0833C8.56716 0 7.33333 1.23383 7.33333 2.75V3.66667C7.33333 4.17267 7.744 4.58333 8.25 4.58333C8.756 4.58333 9.16666 4.17267 9.16666 3.66667V2.75C9.16666 2.24492 9.57825 1.83333 10.0833 1.83333H14.3541L14.0745 1.92683C13.332 2.1835 12.8333 2.88292 12.8333 3.66667V17.4167H10.0833C9.57825 17.4167 9.16666 17.0051 9.16666 16.5V14.6667C9.16666 14.1607 8.756 13.75 8.25 13.75C7.744 13.75 7.33333 14.1607 7.33333 14.6667V16.5C7.33333 18.0162 8.56716 19.25 10.0833 19.25H12.8333V20.1667C12.8333 21.1778 13.6556 22 14.6667 22C14.8628 22 15.0489 21.9716 15.2506 21.9092L20.7579 20.0732C21.5013 19.8165 22 19.1171 22 18.3333V1.83333C22 0.7645 21.0788 -0.0733333 20.0035 0.01375V0.01375Z"/>
+        <path d="M9.81475 8.51858L6.14808 4.85192C5.88592 4.58975 5.49175 4.51092 5.14892 4.653C4.807 4.79508 4.58333 5.12967 4.58333 5.5V8.24999H0.916667C0.410667 8.24999 0 8.66066 0 9.16666C0 9.67266 0.410667 10.0833 0.916667 10.0833H4.58333V12.8333C4.58333 13.2037 4.807 13.5382 5.14892 13.6803C5.49175 13.8224 5.88592 13.7436 6.14808 13.4814L9.81475 9.81474C10.1732 9.45633 10.1732 8.87699 9.81475 8.51858Z"/>
+    </symbol>
+</svg>
+
+<div class="mesh-loader">
+    <div class="set-one">
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <div class="set-two">
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+</div>
+
+<div id="wrapper">
+
+    <header class="header">
+        <div class="header-wrap">
+            <div class="header-left__content">
+                <div class="logo">
+                    <a href="#">
+                        <img src="img/logo.svg" alt="">
+                    </a>
+                </div>
+                <nav class="navbar">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Sell</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Marketplace</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Community</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Develop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Resources</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right__content">
+                <a href="#" class="login-link">
+                    <svg width="20" height="20">
+                        <use xlink:href="#log-in"></use>
+                    </svg>
+                    <span>Log In</span>
+                </a>
+                <a href="#" class="btn">Get Started</a>
+                <a href="java-script:" class="search-link">
+                    <svg width="16" height="16">
+                        <use xlink:href="#search"></use>
+                    </svg>
+                </a>
+                <div class="search-field-block">
+                    <div class="input-field">
+                        <label for="a_search" class="input-field-search-block">
+                            <svg width="16" height="16">
+                                <use xlink:href="#search"></use>
+                            </svg>
+                            <input type="text" id="a_search" name="a_search">
+                        </label>
+                        <div class="close-btn">
+                            <svg width="14" height="14">
+                                <use xlink:href="#close"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="search-field-block-content">
+                        <a href="#" class="search-field-block-result">
+                            <img src="img/advantages/image2_1.png" alt="album">
+                            <div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                            </div>
+                        </a>
+                        <a href="#" class="search-field-block-result">
+                            <img src="img/advantages/image2_2.png" alt="album">
+                            <div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                            </div>
+                        </a>
+                        <a href="#" class="search-field-block-result">
+                            <img src="img/advantages/image2_3.png" alt="album">
+                            <div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                            </div>
+                        </a>
+                        <a href="#" class="show-all-results">Показать все результаты (175)</a>
+                    </div>
+                </div>
+                <div class="burger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <section class="hero">
+            <div class="container">
+                <div class="row hero-wrap">
+                    <div class="col-lg-7">
+                        <div class="hero-about">
+                            <h1 class="flipInX wow" data-wow-delay=".4s" data-wow-duration=".75s">Building exactly the eCommerce website you want.</h1>
+                            <p class="sub-title fadeInRightBig wow" data-wow-duration=".5s">WooCommerce is a customizable, open-source eCommerce platform built on
+                                WordPress.
+                                Get started quickly and make your way.</p>
+                            <div class="hero-links">
+                                <a href="#" class="btn bounceIn wow" data-wow-delay=".8s" data-wow-duration=".75s">Start a New Store</a>
+                                <p class="fadeInLeft wow" data-wow-delay="1s" data-wow-duration=".5s">or <a href="#">Customize & Extend ›</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 disabled"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages">
+            <div class="container">
+                <h2 class="text-center fadeInUp wow">Your eCommerce <br> made simple</h2>
+                <div class="row advantages-wrap">
+                    <div class="col-lg-4 col-sm-6 advantages-item fadeInRightBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                        <div class="advantages-item__header" style="background-image: url('img/advantages/image1.png')">
+                            <img src="img/advantages/image1_1.png" alt="">
+                        </div>
+                        <div class="advantages-item__body">
+                            <h4>All You Need to Start</h4>
+                            <p>Add WooCommerce plugin to any WordPress site and set up a new store in minutes.</p>
+                            <a href="#" class="more-link">Ecommerce for Wordpress ›</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 advantages-item fadeInUpBig wow" data-wow-delay=".4s" data-wow-duration=".5s">
+                        <div class="advantages-item__header" style="background-image: url('img/advantages/image2.png')">
+                            <img src="img/advantages/image2_1.png" alt="">
+                            <img src="img/advantages/image2_2.png" alt="">
+                            <img src="img/advantages/image2_3.png" alt="">
+                            <img src="img/advantages/image2_4.png" alt="">
+                            <img src="img/advantages/image2_5.png" alt="">
+                        </div>
+                        <div class="advantages-item__body">
+                            <h4>Customize and Extend</h4>
+                            <p>From subscriptions to gym classes to luxury cars, WooCommerce is fully customizable.</p>
+                            <a href="#" class="more-link">Browse Extensions ›</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 advantages-item fadeInLeftBig wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                        <div class="advantages-item__header" style="background-image: url('img/advantages/image3.png')">
+                            <img src="img/advantages/image3_1.png" alt="">
+                            <img src="img/advantages/image3_2.png" alt="">
+                            <img src="img/advantages/image3_3.png" alt="">
+                        </div>
+                        <div class="advantages-item__body">
+                            <h4>Active Community</h4>
+                            <p>WooCommerce is one of the fastest-growing eCommerce communities. </p>
+                            <a href="#" class="more-link">Check our Forums ›</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <div class="row about-wrap">
+                    <div class="about-item">
+                        <div class="col-lg-4 about-item__img fadeInUp wow" data-wow-delay=".75s" data-wow-duration=".5s">
+                            <img src="img/about/image1.png" alt="">
+                        </div>
+                        <div class="col-lg-5 about-item__body fadeInLeft wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                            <h4>Develop <br> Without Limits</h4>
+                            <p>WooCommerce is developer friendly, too. Built with a REST API, WooCommerce is
+                                scalable and can integrate with virtually any service. Design a complex store from
+                                scratch, extend a store for a client, or simply add a single product to a WordPress
+                                site—your store, your way.</p>
+                            <a href="#" class="btn btn-green">Read the Documentation</a>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <div class="col-lg-5 about-item__body fadeInRight wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                            <h4>Know our <br> Global Community</h4>
+                            <p>WooCommerce is one of the fastest-growing eCommerce communities. We’re proud that the
+                                helpfulness of the community and a wealth of online resources are frequently cited as
+                                reasons our users love it. There are 80+ meetups worldwide!</p>
+                            <a href="#" class="btn btn-green">Read the Documentation</a>
+                        </div>
+                        <div class="col-lg-4 about-item__img fadeInUp wow" data-wow-delay=".75s" data-wow-duration=".5s">
+                            <img src="img/about/image2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedback">
+            <div class="container">
+                <h2 class="text-center fadeInUp wow">Trusted by Agencies <br> & Store Owners</h2>
+                <div class="row feedback-wrap">
+                    <div class="col-lg-2 col-1 commentators-left__wrap">
+                        <div class="commentator-item zoomIn wow" data-wow-delay=".2s">
+                            <img src="img/feedback/commentator1.png" alt="">
+                        </div>
+                        <div class="commentator-item zoomIn wow" data-wow-delay="1s">
+                            <img src="img/feedback/commentator2.png" alt="">
+                        </div>
+                        <div class="commentator-item zoomIn wow" data-wow-delay="1.8s">
+                            <img src="img/feedback/commentator3.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-10">
+                        <div class="feedback-swiper">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="feedback-swiper__item">
+                                            <p>No other eCommerce platform allows people to start for free and grow
+                                                their store as their business grows. More importantly, WooCommerce
+                                                doesn't charge you a portion of your profits as your business grows!</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="feedback-swiper__item">
+                                            <p>No other eCommerce platform allows people to start for free and grow
+                                                their store as their business grows. More importantly, WooCommerce
+                                                doesn't charge you a portion of your profits as your business grows!</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="feedback-swiper__item">
+                                            <p>No other eCommerce platform allows people to start for free and grow
+                                                their store as their business grows. More importantly, WooCommerce
+                                                doesn't charge you a portion of your profits as your business grows!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev">
+                                <svg width="52" height="52">
+                                    <use xlink:href="#swiper-arrow"></use>
+                                </svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg width="52" height="52">
+                                    <use xlink:href="#swiper-arrow"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-1 commentators-right__wrap">
+                        <div class="commentator-item zoomIn wow" data-wow-delay="2.2s">
+                            <img src="img/feedback/commentator4.png" alt="">
+                        </div>
+                        <div class="commentator-item zoomIn wow" data-wow-delay=".6s">
+                            <img src="img/feedback/commentator5.png" alt="">
+                        </div>
+                        <div class="commentator-item zoomIn wow" data-wow-delay="1.4s">
+                            <img src="img/feedback/commentator6.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="command">
+            <div class="command-top">
+                <div class="container">
+                    <h2 class="text-center fadeInUp wow">Supported by real people</h2>
+                    <p class="text-center fadeInUp wow" data-wow-delay=".2s">Our team of Happiness Engineers works remotely from 58 countries providing
+                        <br> customer support across multiple time zones.</p>
+                    <div class="row command-top__wrap">
+                        <div class="col-lg-12">
+                            <div class="command-item">
+                                <img src="img/command/image1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="command-bottom">
+                <div class="container">
+                    <div class="row command-bottom__wrap">
+                        <div class="col-lg-1 disabled"></div>
+                        <div class="col-lg-10">
+                            <div class="get-started__wrap">
+                                <h4>WooCommerce - the <b>most customizable eCommerce platform</b> for building <b>your
+                                    online business.</b></h4>
+                                <a href="#" class="btn btn-out bounceIn wow" data-wow-delay=".4s">GET STARTED</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 disabled"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row footer-top__top">
+                    <div class="col-lg-12">
+                        <ul class="footer-advan__list">
+                            <li class="footer-advan__item fadeInRightBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                                <img src="img/icons/yes.svg" alt="">
+                                <p>30 day <b>money back guarantee</b></p>
+                            </li>
+                            <li class="footer-advan__item fadeInUpBig wow" data-wow-delay=".4s" data-wow-duration=".5s">
+                                <img src="img/icons/union.svg" alt="">
+                                <p><b>Support</b> teams across the world</p>
+                            </li>
+                            <li class="footer-advan__item fadeInLeftBig wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                <img src="img/icons/secure.svg" alt="">
+                                <p><b>Safe & Secure</b> online payment</p>
+                            </li>
+                        </ul>
+                        <div class="footer-logo bounceIn wow" data-wow-delay="1s">
+                            <a href="#"><img src="img/footer-logo.svg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row footer-top__bottom">
+                    <div class="col-lg-1 disabled"></div>
+                    <div class="col-lg-10">
+                        <div class="footer-navbar">
+                            <ul class="footer-nav__list">
+                                <li class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                                    <h5>Who we Are</h5>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">About</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Team</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".5s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Work With Us</a>
+                                </li>
+                            </ul>
+                            <ul class="footer-nav__list">
+                                <li class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                                    <h5>Woocommerce</h5>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Features</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Payments</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".5s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Marketing</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".6s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Shipping</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".7s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Extension Store</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".8s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">eCommerce blog</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".9s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Development blog</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay="1s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Ideas board</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay="1.1s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Mobile App</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay="1.2s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Community</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay="1.3s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Style Guide</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay="1.4s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Email Newsletter</a>
+                                </li>
+                            </ul>
+                            <ul class="footer-nav__list">
+                                <li class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                                    <h5>Other products</h5>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Storefront</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">WooSlider</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".5s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Sensei</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".6s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Sensei Extensions</a>
+                                </li>
+                            </ul>
+                            <ul class="footer-nav__list">
+                                <li class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                                    <h5>Support</h5>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Documentation</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Customizations</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".5s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Support Policy</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".6s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Contact</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".7s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">COVID-19 Resources</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".8s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Privacy Notice for</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".9s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">California Users</a>
+                                </li>
+                            </ul>
+                            <ul class="footer-nav__list">
+                                <li class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                                    <h5>We recommend</h5>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">WooExperts</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Hosting Solutions</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".5s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Pre-sales FAQ</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".6s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Success Stories</a>
+                                </li>
+                                <li class="fadeInUp wow" data-wow-delay=".7s" data-wow-duration=".5s">
+                                    <a href="#" class="hover-line">Design Feedback Group</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 disabled"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row footer-bottom__wrap">
+                    <div class="col-lg-3 footer-social">
+                        <ul class="footer-social__list">
+                            <li class="bounceIn wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                <a href="#">
+                                    <svg width="25" height="25">
+                                        <use xlink:href="#twitter"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="bounceIn wow" data-wow-delay=".6s" data-wow-duration=".5s">
+                                <a href="#">
+                                    <svg width="25" height="25">
+                                        <use xlink:href="#facebook"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="bounceIn wow" data-wow-delay=".9s" data-wow-duration=".5s">
+                                <a href="#">
+                                    <svg width="25" height="25">
+                                        <use xlink:href="#wifi"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="bounceIn wow" data-wow-delay="1.2s" data-wow-duration=".5s">
+                                <a href="#">
+                                    <svg width="25" height="25">
+                                        <use xlink:href="#instagram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 copyright-block">
+                        <p>COPYRIGHT WOOCOMMERCE 2020 - TERMS & CONDITIONS PRIVACY POLICY</p>
+                    </div>
+                    <div class="col-lg-3 footer-bottom__logo">
+                        <a href="#"><img src="img/footer/automattic.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="overlay"></div>
+
+</div>
+
+<script src="js/libs.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
